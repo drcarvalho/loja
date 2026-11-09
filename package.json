@@ -1,0 +1,18 @@
+{
+  "name": "loja-tete",
+  "version": "1.0.0",
+  "description": "Loja online com catálogo Yupoo, seleção de Modelo, Tamanho, Quantidade e Pedidos via WhatsApp",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 server.py"
+  },
+  "keywords": [
+    "loja",
+    "whatsapp",
+    "yupoo",
+    "ecommerce"
+  ],
+  "author": "",
+  "license": "MIT"
+}
+
