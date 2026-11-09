@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="siteTitle">Loja Tetê – Catálogo Premium</title>
-  <meta name="description" content="Catálogo completo de camisas esportivas com seleção de Modelo, Tamanho, Quantidade, Personalizações e Frete Integrado ao WhatsApp.">
+  <meta name="description"
+    content="Catálogo completo de camisas esportivas com seleção de Modelo, Tamanho, Quantidade, Personalizações e Frete Integrado ao WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- Header / Barra Superior -->
   <header class="header">
@@ -26,24 +31,30 @@
       <div class="header-actions">
         <!-- Seletor de Idiomas -->
         <div class="lang-selector" role="group" aria-label="Idioma">
-          <button type="button" class="lang-btn active" data-lang="pt" title="Português" role="button" aria-label="Selecionar idioma Português">🇧🇷 PT</button>
-          <button type="button" class="lang-btn" data-lang="en" title="English" role="button" aria-label="Selecionar idioma English">🇺🇸 EN</button>
-          <button type="button" class="lang-btn" data-lang="zh" title="中文 (Chinese)" role="button" aria-label="Selecionar idioma 中文">🇨🇳 中文</button>
+          <button type="button" class="lang-btn active" data-lang="pt" title="Português" role="button"
+            aria-label="Selecionar idioma Português">🇧🇷 PT</button>
+          <button type="button" class="lang-btn" data-lang="en" title="English" role="button"
+            aria-label="Selecionar idioma English">🇺🇸 EN</button>
+          <button type="button" class="lang-btn" data-lang="zh" title="中文 (Chinese)" role="button"
+            aria-label="Selecionar idioma 中文">🇨🇳 中文</button>
         </div>
 
         <!-- Badge de Cotação Interativa -->
-        <button type="button" class="rate-badge" id="rate-badge-pill" title="Clique para ajustar a cotação do dólar" aria-label="Ajustar cotação do dólar">
+        <button type="button" class="rate-badge" id="rate-badge-pill" title="Clique para ajustar a cotação do dólar"
+          aria-label="Ajustar cotação do dólar">
           <span class="pulse-dot" aria-hidden="true"></span>
           <i class="fa-solid fa-coins" aria-hidden="true"></i>
           <span>1 USD = R$ <strong id="header-rate-display">5,80</strong></span>
         </button>
 
-        <button type="button" id="open-settings-btn" class="btn-icon" title="Configurar WhatsApp, Dólar e Cotação" aria-label="Configurações da Loja">
+        <button type="button" id="open-settings-btn" class="btn-icon" title="Configurar WhatsApp, Dólar e Cotação"
+          aria-label="Configurações da Loja">
           <i class="fa-solid fa-sliders" aria-hidden="true"></i>
           <span class="settings-label" data-i18n="adjustStore">Configurações</span>
         </button>
 
-        <button type="button" id="cart-floating-btn" class="btn-cart" aria-label="Abrir carrinho" aria-controls="cart-sidebar" aria-expanded="false">
+        <button type="button" id="cart-floating-btn" class="btn-cart" aria-label="Abrir carrinho"
+          aria-controls="cart-sidebar" aria-expanded="false">
           <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           <span class="cart-label" data-i18n="cart">Carrinho</span>
           <span id="cart-badge" class="badge">0</span>
@@ -62,12 +73,16 @@
             <span data-i18n="bannerBadge">Catálogo 2026/27 Sincronizado com Yupoo</span>
           </div>
           <h2 data-i18n="bannerTitle">Catálogo Premium de Camisas de Time 🔥</h2>
-          <p data-i18n="bannerDesc">Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares convertido automaticamente para reais.</p>
+          <p data-i18n="bannerDesc">Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares
+            convertido automaticamente para reais.</p>
 
           <div class="banner-perks">
-            <span class="perk-tag"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-i18n="perkFreeShipping">Frete Grátis 5+ Peças</span></span>
-            <span class="perk-tag"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-i18n="perkWhatsApp">Atendimento Direto</span></span>
-            <span class="perk-tag"><i class="fa-solid fa-tags" aria-hidden="true"></i> <span data-i18n="perkFactoryPrice">Preço Direto da Fábrica</span></span>
+            <span class="perk-tag"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span
+                data-i18n="perkFreeShipping">Frete Grátis 5+ Peças</span></span>
+            <span class="perk-tag"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span
+                data-i18n="perkWhatsApp">Atendimento Direto</span></span>
+            <span class="perk-tag"><i class="fa-solid fa-tags" aria-hidden="true"></i> <span
+                data-i18n="perkFactoryPrice">Preço Direto da Fábrica</span></span>
           </div>
         </div>
 
@@ -99,8 +114,11 @@
         <div class="search-row">
           <div class="search-box">
             <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
-            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)..." aria-label="Buscar produtos">
-            <button type="button" id="clear-search-btn" class="clear-search-btn" style="display:none;" title="Limpar busca" aria-label="Limpar busca">&times;</button>
+            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder"
+              placeholder="Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)..."
+              aria-label="Buscar produtos">
+            <button type="button" id="clear-search-btn" class="clear-search-btn" style="display:none;"
+              title="Limpar busca" aria-label="Limpar busca">&times;</button>
           </div>
         </div>
 
@@ -111,7 +129,8 @@
           <button type="button" class="chip" data-filter="player" data-i18n="catPlayer">⚡ Players ($10)</button>
           <button type="button" class="chip" data-filter="retro" data-i18n="catRetro">⏳ Retro ($12)</button>
           <button type="button" class="chip" data-filter="kids" data-i18n="catKids">👦 Conjunto Kids ($10)</button>
-          <button type="button" class="chip" data-filter="long_sleeve" data-i18n="catLongSleeve">🥼 Manga Longa ($13)</button>
+          <button type="button" class="chip" data-filter="long_sleeve" data-i18n="catLongSleeve">🥼 Manga Longa
+            ($13)</button>
           <button type="button" class="chip" data-filter="training" data-i18n="catTraining">🏃 Treino ($22)</button>
         </div>
 
@@ -151,14 +170,16 @@
             <button type="button" id="clear-cart-btn" class="btn-text-danger" title="Esvaziar carrinho">
               <i class="fa-solid fa-trash-can" aria-hidden="true"></i> <span data-i18n="clearCart">Limpar</span>
             </button>
-            <button type="button" id="close-cart-drawer" class="btn-close-drawer" aria-label="Fechar carrinho">&times;</button>
+            <button type="button" id="close-cart-drawer" class="btn-close-drawer"
+              aria-label="Fechar carrinho">&times;</button>
           </div>
         </div>
 
         <!-- Banner de Progresso do Frete Grátis -->
         <div class="shipping-progress-card" id="shipping-progress-box">
           <div class="progress-labels">
-            <span class="progress-title"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-i18n="shippingPromoTitle">Promoção Frete Grátis</span></span>
+            <span class="progress-title"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span
+                data-i18n="shippingPromoTitle">Promoção Frete Grátis</span></span>
             <span class="progress-target" id="progress-target-text">Faltam 5 peças</span>
           </div>
           <div class="progress-bar-bg">
@@ -179,21 +200,25 @@
 
         <!-- Formulário do Cliente -->
         <div class="order-form">
-          <h4><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span data-i18n="orderData">Dados para o Pedido</span></h4>
+          <h4><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span data-i18n="orderData">Dados para o
+              Pedido</span></h4>
 
           <div class="input-group">
             <label for="customer-name" data-i18n="yourName">Seu Nome *</label>
-            <input type="text" id="customer-name" data-i18n-placeholder="namePlaceholder" placeholder="Ex: Lucas Ferreira" required>
+            <input type="text" id="customer-name" data-i18n-placeholder="namePlaceholder"
+              placeholder="Ex: Lucas Ferreira" required>
           </div>
 
           <div class="input-group">
             <label for="customer-address" data-i18n="deliveryAddress">Endereço de Entrega / Cidade</label>
-            <input type="text" id="customer-address" data-i18n-placeholder="addressPlaceholder" placeholder="Ex: Av. Paulista, 1000 - São Paulo/SP">
+            <input type="text" id="customer-address" data-i18n-placeholder="addressPlaceholder"
+              placeholder="Ex: Av. Paulista, 1000 - São Paulo/SP">
           </div>
 
           <div class="input-group">
             <label for="order-notes" data-i18n="notes">Observações / Instruções</label>
-            <textarea id="order-notes" rows="2" data-i18n-placeholder="notesPlaceholder" placeholder="Ex: Entregar à tarde, embalar para presente, etc."></textarea>
+            <textarea id="order-notes" rows="2" data-i18n-placeholder="notesPlaceholder"
+              placeholder="Ex: Entregar à tarde, embalar para presente, etc."></textarea>
           </div>
         </div>
 
@@ -242,18 +267,21 @@
   </main>
 
   <!-- Modal: Configuração da Loja -->
-  <div class="modal" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" aria-hidden="true">
+  <div class="modal" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title"
+    aria-hidden="true">
     <div class="modal-backdrop" id="backdrop-settings"></div>
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3 id="settings-modal-title"><i class="fa-solid fa-gear" aria-hidden="true"></i> <span data-i18n="configTitle">Configurações da Loja</span></h3>
-        <button type="button" class="btn-close-modal" id="close-settings-modal" aria-label="Fechar configurações">&times;</button>
+        <h3 id="settings-modal-title"><i class="fa-solid fa-gear" aria-hidden="true"></i> <span
+            data-i18n="configTitle">Configurações da Loja</span></h3>
+        <button type="button" class="btn-close-modal" id="close-settings-modal"
+          aria-label="Fechar configurações">&times;</button>
       </div>
       <form id="form-settings" class="modal-body">
         <div class="input-group">
           <label for="store-phone" data-i18n="whatsAppNumber">Número de WhatsApp da sua Loja *</label>
-          <input type="text" id="store-phone" placeholder="Ex: 5514998077106" value="5514998077106" required>
-          <small class="helper-text">DDD + 9 dígitos com DDI 55 (ex: <code>5514998077106</code>).</small>
+          <input type="text" id="store-phone" placeholder="Ex: 8615875982936" value="8615875982936" required>
+          <small class="helper-text">DDD + 9 dígitos com DDI 55 (ex: <code>8615875982936</code>).</small>
         </div>
 
         <div class="input-group">
@@ -263,9 +291,11 @@
 
         <div class="input-row">
           <div class="input-group">
-            <label for="store-exchange-rate-input" data-i18n="dollarRateInput">Cotação do Dólar no seu App (R$ por 1 USD) *</label>
+            <label for="store-exchange-rate-input" data-i18n="dollarRateInput">Cotação do Dólar no seu App (R$ por 1
+              USD) *</label>
             <input type="number" step="0.001" min="1" id="store-exchange-rate-input" value="5.80" required>
-            <small class="helper-text" data-i18n="dollarRateHelper">Insira a cotação exata mostrada no app de transferência (ex: Wise, Nomad, Remessa Online, etc.).</small>
+            <small class="helper-text" data-i18n="dollarRateHelper">Insira a cotação exata mostrada no app de
+              transferência (ex: Wise, Nomad, Remessa Online, etc.).</small>
           </div>
           <div class="input-group">
             <label for="store-default-price-input" data-i18n="defaultPriceUSD">Preço Padrão Fan (US$)</label>
@@ -276,7 +306,8 @@
 
         <div class="modal-actions">
           <button type="button" class="btn-secondary" id="cancel-settings-modal" data-i18n="cancel">Cancelar</button>
-          <button type="submit" class="btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> <span data-i18n="saveChanges">Salvar Alterações</span></button>
+          <button type="submit" class="btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> <span
+              data-i18n="saveChanges">Salvar Alterações</span></button>
         </div>
       </form>
     </div>
@@ -288,7 +319,8 @@
   <!-- Barra Flutuante Móvel do Carrinho -->
   <div class="mobile-cart-bar" id="mobile-cart-bar">
     <div class="mobile-cart-info">
-      <span class="mobile-cart-qty"><strong id="mobile-badge">0</strong> <span data-i18n="piecesLabel">peças</span></span>
+      <span class="mobile-cart-qty"><strong id="mobile-badge">0</strong> <span
+          data-i18n="piecesLabel">peças</span></span>
       <span class="mobile-cart-total" id="mobile-total-val">R$ 0,00</span>
     </div>
     <button type="button" class="mobile-cart-btn" id="mobile-cart-scroll-btn">
@@ -308,7 +340,8 @@
           <div class="logo-icon small" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
           <strong>Loja Tetê</strong>
         </div>
-        <p>© <span id="current-year"></span> - <span data-i18n="footerText">Catálogo integrado e sincronizado. Desenvolvido para conversão direta via WhatsApp.</span></p>
+        <p>© <span id="current-year"></span> - <span data-i18n="footerText">Catálogo integrado e sincronizado.
+            Desenvolvido para conversão direta via WhatsApp.</span></p>
       </div>
     </div>
   </footer>
@@ -316,4 +349,5 @@
   <script src="i18n.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
