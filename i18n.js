@@ -4,11 +4,22 @@ const i18n = {
     tagline: "Catálogo premium – pedidos via WhatsApp",
     adjustStore: "Configurações",
     cart: "Carrinho",
+    bannerBadge: "Catálogo 2026/27 Sincronizado com Yupoo",
     bannerTitle: "Catálogo Premium de Camisas de Time 🔥",
-    bannerDesc: "Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares convertido automaticamente para reais.",,
+    bannerDesc: "Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares convertido automaticamente para reais.",
+    perkFreeShipping: "Frete Grátis 5+ Peças",
+    perkWhatsApp: "Atendimento Direto",
+    perkFactoryPrice: "Preço Direto da Fábrica",
     productsStat: "Produtos",
     directOrder: "Pedido Direto",
     searchPlaceholder: "Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)...",
+    catAll: "Todos",
+    catFan: "👕 Fan ($8)",
+    catPlayer: "⚡ Players ($10)",
+    catRetro: "⏳ Retro ($12)",
+    catKids: "👦 Conjunto Kids ($10)",
+    catLongSleeve: "🥼 Manga Longa ($13)",
+    catTraining: "🏃 Treino ($22)",
     verifiedProducts: "Produtos 100% verificados",
     itemsFound: "itens encontrados",
     noProductsFound: "Nenhum modelo encontrado",
@@ -20,7 +31,7 @@ const i18n = {
     added: "Adicionado!",
     seeYupoo: "Yupoo",
     surchargeNotice: "(+$%s adicional)",
-    
+
     // Personalizações
     customizationTitle: "Adicionais do Item:",
     optPersonalization: "🔠 Personalização (Nome + Nº) (+3$)",
@@ -29,16 +40,22 @@ const i18n = {
     customNamePlaceholder: "Nome (Ex: NEYMAR JR)",
     customNumberPlaceholder: "Nº (Ex: 10)",
     customPatchPlaceholder: "Qual patch? (Ex: Champions League, Mundial)",
-    
+
     // Frete
     shippingTitle: "Cálculo de Frete:",
-    shippingFree: "🚚💨 FRETE GRÁTIS! (5+ peças)",
+    shippingPromoTitle: "Promoção Frete Grátis",
+    shippingFree: "FRETE GRÁTIS! (5+ peças)",
+    shippingRemaining: "Faltam %s peças",
+    shippingFreeDone: "Frete Grátis Liberado!",
+    shippingPiecesProgress: "Peças: %s un. (Faltam %s para Frete Grátis!)",
     shippingRate: "Frete (%s peças): +$%s USD (≈ R$ %s)",
     shippingRulesInfo: "Frete: 1 un = 5$ | 2 un = 4$ | 3 un = 3$ | 4 un = 2$ | 5+ un = GRÁTIS!",
-    
+
     // Carrinho
     yourCart: "Seu Carrinho",
     clearCart: "Limpar",
+    viewCart: "Ver Carrinho",
+    piecesLabel: "peças",
     emptyCartTitle: "Seu carrinho está vazio.",
     emptyCartDesc: "Selecione produtos, modelo e tamanho para começar!",
     orderData: "Dados para o Pedido",
@@ -73,7 +90,8 @@ const i18n = {
     confirmClearCart: "Tem certeza que deseja limpar todo o carrinho?",
     itemRemoved: "removido.",
     openingWhatsApp: "Abrindo WhatsApp com todos os dados do pedido...",
-    
+    catalogError: "Erro ao carregar o catálogo",
+
     // WhatsApp Format
     waTitle: "NOVO PEDIDO",
     waCustomerData: "DADOS DO CLIENTE:",
@@ -94,8 +112,7 @@ const i18n = {
     waTotalUSD: "TOTAL EM DÓLAR:",
     waTotalBRL: "TOTAL CONVERTIDO:",
     waFooter: "Olá! Montei meu pedido pelo catálogo com os modelos e adicionais. Como realizo o pagamento? Aguardo confirmação! ✅",
-    
-    // Tipos de Produtos
+
     types: {
       fan: "👕 Fan (Torcedor) - $8",
       player: "👕 Players (Jogador) - $10",
@@ -112,7 +129,6 @@ const i18n = {
       nba: "🏀 Regata NBA - $18"
     },
 
-    // Tamanhos
     sizes: {
       "P (S)": "P (S)",
       "M (M)": "M (M)",
@@ -133,13 +149,24 @@ const i18n = {
   en: {
     siteTitle: "Tetê Store - Catalog & WhatsApp Orders",
     tagline: "Yupoo Catalog • Direct WhatsApp Orders",
-    adjustStore: "Adjust Rate / Store",
+    adjustStore: "Settings",
     cart: "Cart",
+    bannerBadge: "2026/27 Catalog Synced with Yupoo",
     bannerTitle: "Official Football Jersey Catalog 🔥",
     bannerDesc: "Select Model, Version, Size, Custom Add-ons, and Shipping. Prices calculated in USD and converted to BRL!",
+    perkFreeShipping: "Free Shipping 5+ Items",
+    perkWhatsApp: "Direct Support",
+    perkFactoryPrice: "Factory Direct Prices",
     productsStat: "Products",
     directOrder: "Direct Order",
     searchPlaceholder: "Search by team, club or model (e.g. Real Madrid, Barcelona, Brazil)...",
+    catAll: "All",
+    catFan: "👕 Fan ($8)",
+    catPlayer: "⚡ Players ($10)",
+    catRetro: "⏳ Retro ($12)",
+    catKids: "👦 Kids Set ($10)",
+    catLongSleeve: "🥼 Long Sleeve ($13)",
+    catTraining: "🏃 Training ($22)",
     verifiedProducts: "100% verified products",
     itemsFound: "items found",
     noProductsFound: "No models found",
@@ -151,8 +178,7 @@ const i18n = {
     added: "Added!",
     seeYupoo: "Yupoo",
     surchargeNotice: "(+$%s extra)",
-    
-    // Customizations
+
     customizationTitle: "Item Add-ons:",
     optPersonalization: "🔠 Custom Name + Number (+3$)",
     optPatch: "📌 Sleeve Patch (+1$)",
@@ -160,16 +186,20 @@ const i18n = {
     customNamePlaceholder: "Name (e.g. NEYMAR JR)",
     customNumberPlaceholder: "No. (e.g. 10)",
     customPatchPlaceholder: "Which patch? (e.g. Champions League)",
-    
-    // Shipping
+
     shippingTitle: "Shipping Calculation:",
-    shippingFree: "🚚💨 FREE SHIPPING! (5+ items)",
+    shippingPromoTitle: "Free Shipping Promo",
+    shippingFree: "FREE SHIPPING! (5+ items)",
+    shippingRemaining: "%s items left",
+    shippingFreeDone: "Free Shipping Unlocked!",
+    shippingPiecesProgress: "Items: %s pcs (%s more for Free Shipping!)",
     shippingRate: "Shipping (%s items): +$%s USD (≈ R$ %s)",
     shippingRulesInfo: "Shipping: 1 item = $5 | 2 items = $4 | 3 items = $3 | 4 items = $2 | 5+ items = FREE!",
-    
-    // Cart
+
     yourCart: "Your Cart",
     clearCart: "Clear",
+    viewCart: "View Cart",
+    piecesLabel: "items",
     emptyCartTitle: "Your cart is empty.",
     emptyCartDesc: "Select products, size and quantity to start!",
     orderData: "Order Details",
@@ -204,8 +234,8 @@ const i18n = {
     confirmClearCart: "Are you sure you want to clear your cart?",
     itemRemoved: "removed.",
     openingWhatsApp: "Opening WhatsApp with order details...",
-    
-    // WhatsApp Format
+    catalogError: "Error loading catalog",
+
     waTitle: "NEW ORDER",
     waCustomerData: "CUSTOMER DETAILS:",
     waName: "Name:",
@@ -225,8 +255,7 @@ const i18n = {
     waTotalUSD: "TOTAL IN USD:",
     waTotalBRL: "TOTAL CONVERTED:",
     waFooter: "Hello! I placed my order through the catalog with all add-ons and items. How can I pay? Waiting for confirmation! ✅",
-    
-    // Types
+
     types: {
       fan: "👕 Fan Version - $8",
       player: "👕 Player Version - $10",
@@ -263,13 +292,24 @@ const i18n = {
   zh: {
     siteTitle: "Tetê 商店 - 目录与 WhatsApp 订单",
     tagline: "Yupoo 相册目录 • WhatsApp 一键下单",
-    adjustStore: "调整汇率 / 店铺",
+    adjustStore: "店铺设置",
     cart: "购物车",
+    bannerBadge: "2026/27 目录已同步 Yupoo",
     bannerTitle: "官方球衣精选目录 🔥",
     bannerDesc: "选择款式、版本、尺码、定制配件与运费。美元计价并自动折合雷亚尔！",
+    perkFreeShipping: "满5件免运费",
+    perkWhatsApp: "官方直连客服",
+    perkFactoryPrice: "工厂直发特价",
     productsStat: "全部商品",
     directOrder: "直接下单",
     searchPlaceholder: "按球队、俱乐部或型号搜索（例如：皇马、巴萨、巴西队）...",
+    catAll: "全部",
+    catFan: "👕 球迷版 ($8)",
+    catPlayer: "⚡ 球员版 ($10)",
+    catRetro: "⏳ 复古版 ($12)",
+    catKids: "👦 儿童套装 ($10)",
+    catLongSleeve: "🥼 长袖 ($13)",
+    catTraining: "🏃 训练服 ($22)",
     verifiedProducts: "100% 优质正品保证",
     itemsFound: "个商品",
     noProductsFound: "未找到相关款式",
@@ -281,8 +321,7 @@ const i18n = {
     added: "已添加！",
     seeYupoo: "又拍相册",
     surchargeNotice: "(+$%s 附加费)",
-    
-    // Customizations
+
     customizationTitle: "商品附加定制：",
     optPersonalization: "🔠 姓名+号码定制 (+3$)",
     optPatch: "📌 袖章 Patch (+1$)",
@@ -290,16 +329,20 @@ const i18n = {
     customNamePlaceholder: "印字姓名 (例: NEYMAR JR)",
     customNumberPlaceholder: "印号 (例: 10)",
     customPatchPlaceholder: "哪种袖章？ (例: 欧冠章, 世俱杯章)",
-    
-    // Shipping
+
     shippingTitle: "运费核算：",
-    shippingFree: "🚚💨 满 5 件包邮免运费！",
+    shippingPromoTitle: "满5件包邮活动",
+    shippingFree: "满 5 件包邮免运费！",
+    shippingRemaining: "还差 %s 件",
+    shippingFreeDone: "已解锁免运费！",
+    shippingPiecesProgress: "已选 %s 件（还差 %s 件即可免运费！）",
     shippingRate: "运费 (%s 件): +$%s USD (≈ R$ %s)",
     shippingRulesInfo: "运费标准：1件=$5 | 2件=$4 | 3件=$3 | 4件=$2 | 5件及以上=免运费！",
-    
-    // Cart
+
     yourCart: "您的购物车",
     clearCart: "清空",
+    viewCart: "查看购物车",
+    piecesLabel: "件",
     emptyCartTitle: "购物车为空。",
     emptyCartDesc: "请选择款式、版本与尺码开始购物！",
     orderData: "订单收货信息",
@@ -334,8 +377,8 @@ const i18n = {
     confirmClearCart: "确定要清空购物车吗？",
     itemRemoved: "已移除。",
     openingWhatsApp: "正在打开 WhatsApp 并加载订单信息...",
-    
-    // WhatsApp Format
+    catalogError: "加载目录出错",
+
     waTitle: "新订单通知",
     waCustomerData: "客户信息：",
     waName: "姓名：",
@@ -355,8 +398,7 @@ const i18n = {
     waTotalUSD: "美元总额：",
     waTotalBRL: "折合雷亚尔总额：",
     waFooter: "您好！我已在目录中选好商品及定制配件，请问如何付款？期待确认！✅",
-    
-    // Types
+
     types: {
       fan: "👕 球迷版 (Fan) - $8",
       player: "👕 球员版 (Players) - $10",

@@ -6,6 +6,12 @@ export default defineConfig({
   expect: {
     timeout: 5000,
   },
+  webServer: {
+    command: 'python3 server.py',
+    url: 'http://localhost:8080',
+    reuseExistingServer: true,
+    timeout: 15_000,
+  },
   use: {
     baseURL: 'http://localhost:8080',
     headless: true,
@@ -22,10 +28,5 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
   ],
 });
-

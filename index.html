@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="siteTitle">Loja Tetê - Catálogo & Pedidos via WhatsApp</title>
+  <title data-i18n="siteTitle">Loja Tetê – Catálogo Premium</title>
   <meta name="description" content="Catálogo completo de camisas esportivas com seleção de Modelo, Tamanho, Quantidade, Personalizações e Frete Integrado ao WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,38 +12,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header / Barra Superior Sticky Glassmorphism -->
+  <!-- Header / Barra Superior -->
   <header class="header">
     <div class="container nav-content">
       <div class="brand">
-        <div class="logo-icon"><i class="fa-solid fa-shirt"></i></div>
+        <div class="logo-icon" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
         <div class="brand-text">
           <h1>Loja Tetê</h1>
-          <p class="tagline" data-i18n="tagline">Catálogo Yupoo • Encomendas no WhatsApp</p>
+          <p class="tagline" data-i18n="tagline">Catálogo premium – pedidos via WhatsApp</p>
         </div>
       </div>
+
       <div class="header-actions">
-        <!-- Seletor de Idiomas (Português, Inglês, Chinês) -->
-        <div class="lang-selector">
-          <button class="lang-btn active" data-lang="pt" title="Português" role="button" aria-label="Selecionar idioma Português">🇧🇷 PT</button>
-          <button class="lang-btn" data-lang="en" title="English" role="button" aria-label="Selecionar idioma English">🇺🇸 EN</button>
-          <button class="lang-btn" data-lang="zh" title="中文 (Chinese)">🇨🇳 中文</button>
+        <!-- Seletor de Idiomas -->
+        <div class="lang-selector" role="group" aria-label="Idioma">
+          <button type="button" class="lang-btn active" data-lang="pt" title="Português" role="button" aria-label="Selecionar idioma Português">🇧🇷 PT</button>
+          <button type="button" class="lang-btn" data-lang="en" title="English" role="button" aria-label="Selecionar idioma English">🇺🇸 EN</button>
+          <button type="button" class="lang-btn" data-lang="zh" title="中文 (Chinese)" role="button" aria-label="Selecionar idioma 中文">🇨🇳 中文</button>
         </div>
 
         <!-- Badge de Cotação Interativa -->
-        <div class="rate-badge" id="rate-badge-pill" title="Clique para ajustar a cotação do dólar" role="button" aria-label="Ajustar cotação do dólar">>
-          <div class="pulse-dot"></div>
-          <i class="fa-solid fa-coins"></i>
+        <button type="button" class="rate-badge" id="rate-badge-pill" title="Clique para ajustar a cotação do dólar" aria-label="Ajustar cotação do dólar">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          <i class="fa-solid fa-coins" aria-hidden="true"></i>
           <span>1 USD = R$ <strong id="header-rate-display">5,80</strong></span>
-        </div>
-
-        <button id="open-settings-btn" class="btn-icon" title="Configurar WhatsApp, Dólar e Cotação">
-          <i class="fa-solid fa-sliders"></i>
-          <span data-i18n="adjustStore">Ajustar Cotação / Loja</span>
         </button>
 
-        <button id="cart-floating-btn" class="btn-cart">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <button type="button" id="open-settings-btn" class="btn-icon" title="Configurar WhatsApp, Dólar e Cotação" aria-label="Configurações da Loja">
+          <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+          <span class="settings-label" data-i18n="adjustStore">Configurações</span>
+        </button>
+
+        <button type="button" id="cart-floating-btn" class="btn-cart" aria-label="Abrir carrinho" aria-controls="cart-sidebar" aria-expanded="false">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
           <span class="cart-label" data-i18n="cart">Carrinho</span>
           <span id="cart-badge" class="badge">0</span>
         </button>
@@ -51,33 +52,35 @@
     </div>
   </header>
 
-  <!-- Banner Informativo com Glassmorphism & Micro-interações -->
+  <!-- Banner Informativo -->
   <section class="hero-banner">
     <div class="container">
       <div class="banner-card">
         <div class="banner-info">
           <div class="banner-badge">
-            <i class="fa-solid fa-bolt"></i> Catálogo 2026/27 Atualizado
+            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+            <span data-i18n="bannerBadge">Catálogo 2026/27 Sincronizado com Yupoo</span>
           </div>
-          <h2 data-i18n="bannerTitle">Catálogo Oficial de Camisas de Time 🔥</h2>
-          <p data-i18n="bannerDesc">Escolha o Modelo, selecione o Tipo, Tamanho, Personalizações e Frete. Pedido calculado em Dólar e convertido em Real!</p>
-          
+          <h2 data-i18n="bannerTitle">Catálogo Premium de Camisas de Time 🔥</h2>
+          <p data-i18n="bannerDesc">Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares convertido automaticamente para reais.</p>
+
           <div class="banner-perks">
-            <span class="perk-tag"><i class="fa-solid fa-truck-fast"></i> Frete Grátis 5+ Peças</span>
-            <span class="perk-tag"><i class="fa-brands fa-whatsapp"></i> Atendimento Direto</span>
-            <span class="perk-tag"><i class="fa-solid fa-tags"></i> Preço Direto da Fábrica</span>
+            <span class="perk-tag"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-i18n="perkFreeShipping">Frete Grátis 5+ Peças</span></span>
+            <span class="perk-tag"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span data-i18n="perkWhatsApp">Atendimento Direto</span></span>
+            <span class="perk-tag"><i class="fa-solid fa-tags" aria-hidden="true"></i> <span data-i18n="perkFactoryPrice">Preço Direto da Fábrica</span></span>
           </div>
         </div>
+
         <div class="banner-stats">
           <div class="stat-pill">
-            <div class="stat-icon-wrap"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <div class="stat-icon-wrap" aria-hidden="true"><i class="fa-solid fa-boxes-stacked"></i></div>
             <div class="stat-info-text">
               <span class="stat-lbl" data-i18n="productsStat">Produtos</span>
               <strong id="catalog-total-stat">1.888</strong>
             </div>
           </div>
           <div class="stat-pill highlight">
-            <div class="stat-icon-wrap wa"><i class="fa-brands fa-whatsapp"></i></div>
+            <div class="stat-icon-wrap wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></div>
             <div class="stat-info-text">
               <span class="stat-lbl">Checkout</span>
               <strong data-i18n="directOrder">Pedido Direto</strong>
@@ -90,64 +93,72 @@
 
   <!-- Conteúdo Principal: Catálogo + Carrinho -->
   <main class="container main-layout">
-    
     <!-- Coluna do Catálogo -->
-    <section class="products-section">
-      <!-- Barra de Filtros e Busca Rápida -->
+    <section class="products-section" aria-label="Catálogo de Produtos">
       <div class="section-controls">
         <div class="search-row">
           <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil, 2026/27)...">
-            <button id="clear-search-btn" class="clear-search-btn" style="display:none;" title="Limpar busca">&times;</button>
+            <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)..." aria-label="Buscar produtos">
+            <button type="button" id="clear-search-btn" class="clear-search-btn" style="display:none;" title="Limpar busca" aria-label="Limpar busca">&times;</button>
           </div>
         </div>
 
         <!-- Chips de Categoria Rápida -->
-        <div class="category-chips" id="category-chips">
-          <button class="chip active" data-filter="all"><i class="fa-solid fa-border-all"></i> Todos</button>
-          <button class="chip" data-filter="fan">👕 Fan ($8)</button>
-          <button class="chip" data-filter="player">⚡ Players ($10)</button>
-          <button class="chip" data-filter="retro">⏳ Retro ($12)</button>
-          <button class="chip" data-filter="kids">👦 Conjunto Kids ($10)</button>
-          <button class="chip" data-filter="long_sleeve">🥼 Manga Longa ($13)</button>
-          <button class="chip" data-filter="training">🏃 Treino ($22)</button>
+        <div class="category-chips" id="category-chips" role="tablist" aria-label="Filtrar por categoria">
+          <button type="button" class="chip active" data-filter="all" data-i18n="catAll">Todos</button>
+          <button type="button" class="chip" data-filter="fan" data-i18n="catFan">👕 Fan ($8)</button>
+          <button type="button" class="chip" data-filter="player" data-i18n="catPlayer">⚡ Players ($10)</button>
+          <button type="button" class="chip" data-filter="retro" data-i18n="catRetro">⏳ Retro ($12)</button>
+          <button type="button" class="chip" data-filter="kids" data-i18n="catKids">👦 Conjunto Kids ($10)</button>
+          <button type="button" class="chip" data-filter="long_sleeve" data-i18n="catLongSleeve">🥼 Manga Longa ($13)</button>
+          <button type="button" class="chip" data-filter="training" data-i18n="catTraining">🏃 Treino ($22)</button>
         </div>
 
         <div class="filter-badge-bar">
           <span id="products-count" class="count-badge">Carregando catálogo...</span>
-          <span class="verified-seal"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="verifiedProducts">Produtos 100% verificados</span></span>
+          <span class="verified-seal">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+            <span data-i18n="verifiedProducts">Produtos 100% verificados</span>
+          </span>
         </div>
       </div>
 
       <!-- Grade de Produtos -->
       <div id="products-grid" class="products-grid">
-        <!-- Renderizado dinamicamente via JS -->
+        <div class="catalog-loading">
+          <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+          <span>Carregando catálogo...</span>
+        </div>
       </div>
 
       <!-- Paginação -->
-      <div class="pagination-controls" id="pagination-container">
-        <!-- Botões de página gerados dinamicamente -->
-      </div>
+      <nav class="pagination-controls" id="pagination-container" aria-label="Paginação"></nav>
     </section>
 
-    <!-- Sidebar do Carrinho Lateral com Glass & Sticky -->
-    <aside class="cart-sidebar" id="cart-sidebar">
+    <!-- Backdrop do Drawer Mobile -->
+    <div class="cart-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+
+    <!-- Sidebar / Drawer do Carrinho -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-label="Carrinho de Compras">
       <div class="cart-card">
         <div class="cart-header">
           <div class="cart-title">
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
             <h3 data-i18n="yourCart">Seu Carrinho</h3>
           </div>
-          <button id="clear-cart-btn" class="btn-text-danger" title="Esvaziar carrinho">
-            <i class="fa-solid fa-trash-can"></i> <span data-i18n="clearCart">Limpar</span>
-          </button>
+          <div class="cart-header-actions">
+            <button type="button" id="clear-cart-btn" class="btn-text-danger" title="Esvaziar carrinho">
+              <i class="fa-solid fa-trash-can" aria-hidden="true"></i> <span data-i18n="clearCart">Limpar</span>
+            </button>
+            <button type="button" id="close-cart-drawer" class="btn-close-drawer" aria-label="Fechar carrinho">&times;</button>
+          </div>
         </div>
 
         <!-- Banner de Progresso do Frete Grátis -->
         <div class="shipping-progress-card" id="shipping-progress-box">
           <div class="progress-labels">
-            <span class="progress-title"><i class="fa-solid fa-truck-fast"></i> Promoção Frete Grátis</span>
+            <span class="progress-title"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span data-i18n="shippingPromoTitle">Promoção Frete Grátis</span></span>
             <span class="progress-target" id="progress-target-text">Faltam 5 peças</span>
           </div>
           <div class="progress-bar-bg">
@@ -159,7 +170,7 @@
         <div id="cart-items" class="cart-items-list">
           <div class="empty-cart-state">
             <div class="empty-cart-icon">
-              <i class="fa-solid fa-basket-shopping"></i>
+              <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
             </div>
             <p data-i18n="emptyCartTitle">Seu carrinho está vazio.</p>
             <span data-i18n="emptyCartDesc">Selecione produtos, modelo e tamanho para começar!</span>
@@ -168,8 +179,8 @@
 
         <!-- Formulário do Cliente -->
         <div class="order-form">
-          <h4><i class="fa-solid fa-user-check"></i> <span data-i18n="orderData">Dados para o Pedido</span></h4>
-          
+          <h4><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span data-i18n="orderData">Dados para o Pedido</span></h4>
+
           <div class="input-group">
             <label for="customer-name" data-i18n="yourName">Seu Nome *</label>
             <input type="text" id="customer-name" data-i18n-placeholder="namePlaceholder" placeholder="Ex: Lucas Ferreira" required>
@@ -205,7 +216,8 @@
             <span id="shipping-usd-val" class="shipping-val">$ 0.00</span>
           </div>
           <div class="summary-shipping-info" id="shipping-info-badge">
-            <i class="fa-solid fa-truck-fast"></i> <span id="shipping-info-text">Frete: 1=$5, 2=$4, 3=$3, 4=$2, 5+=Grátis!</span>
+            <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+            <span id="shipping-info-text">Frete: 1 un = 5$ | 2 un = 4$ | 3 un = 3$ | 4 un = 2$ | 5+ un = GRÁTIS!</span>
           </div>
           <div class="summary-line total-line">
             <div>
@@ -216,9 +228,9 @@
           </div>
         </div>
 
-        <!-- Botão Finalizar no WhatsApp com Efeito Glow -->
-        <button id="btn-send-whatsapp" class="btn-whatsapp" disabled>
-          <i class="fa-brands fa-whatsapp"></i>
+        <!-- Botão Finalizar no WhatsApp -->
+        <button type="button" id="btn-send-whatsapp" class="btn-whatsapp" disabled>
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
           <span data-i18n="buyOnWhatsApp">Comprar e Enviar no WhatsApp</span>
         </button>
 
@@ -230,12 +242,12 @@
   </main>
 
   <!-- Modal: Configuração da Loja -->
-  <div class="modal" id="modal-settings">
+  <div class="modal" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" aria-hidden="true">
     <div class="modal-backdrop" id="backdrop-settings"></div>
     <div class="modal-dialog">
       <div class="modal-header">
-        <h3><i class="fa-solid fa-gear"></i> <span data-i18n="configTitle">Configurações da Loja</span></h3>
-        <button class="btn-close-modal" id="close-settings-modal">&times;</button>
+        <h3 id="settings-modal-title"><i class="fa-solid fa-gear" aria-hidden="true"></i> <span data-i18n="configTitle">Configurações da Loja</span></h3>
+        <button type="button" class="btn-close-modal" id="close-settings-modal" aria-label="Fechar configurações">&times;</button>
       </div>
       <form id="form-settings" class="modal-body">
         <div class="input-group">
@@ -250,12 +262,12 @@
         </div>
 
         <div class="input-row">
-          <div class="input-group" style="flex: 1;">
+          <div class="input-group">
             <label for="store-exchange-rate-input" data-i18n="dollarRateInput">Cotação do Dólar no seu App (R$ por 1 USD) *</label>
             <input type="number" step="0.001" min="1" id="store-exchange-rate-input" value="5.80" required>
             <small class="helper-text" data-i18n="dollarRateHelper">Insira a cotação exata mostrada no app de transferência (ex: Wise, Nomad, Remessa Online, etc.).</small>
           </div>
-          <div class="input-group" style="flex: 1;">
+          <div class="input-group">
             <label for="store-default-price-input" data-i18n="defaultPriceUSD">Preço Padrão Fan (US$)</label>
             <input type="number" step="0.01" min="1" id="store-default-price-input" value="8.00" required>
             <small class="helper-text" data-i18n="defaultPriceHelper">Preço base da versão Fan (padrão: 8.00).</small>
@@ -264,36 +276,36 @@
 
         <div class="modal-actions">
           <button type="button" class="btn-secondary" id="cancel-settings-modal" data-i18n="cancel">Cancelar</button>
-          <button type="submit" class="btn-primary"><i class="fa-solid fa-floppy-disk"></i> <span data-i18n="saveChanges">Salvar Alterações</span></button>
+          <button type="submit" class="btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> <span data-i18n="saveChanges">Salvar Alterações</span></button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Toast Notification -->
-  <div id="toast" class="toast"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Botão Flutuante Móvel para Carrinho -->
+  <!-- Barra Flutuante Móvel do Carrinho -->
   <div class="mobile-cart-bar" id="mobile-cart-bar">
     <div class="mobile-cart-info">
-      <span class="mobile-cart-qty"><strong id="mobile-badge">0</strong> peças</span>
+      <span class="mobile-cart-qty"><strong id="mobile-badge">0</strong> <span data-i18n="piecesLabel">peças</span></span>
       <span class="mobile-cart-total" id="mobile-total-val">R$ 0,00</span>
     </div>
-    <button class="mobile-cart-btn" id="mobile-cart-scroll-btn">
-      <i class="fa-solid fa-bag-shopping"></i> Ver Carrinho
+    <button type="button" class="mobile-cart-btn" id="mobile-cart-scroll-btn">
+      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> <span data-i18n="viewCart">Ver Carrinho</span>
     </button>
   </div>
 
   <!-- Botão Voltar ao Topo -->
-  <button id="btn-back-to-top" class="btn-back-to-top" title="Voltar ao topo">
-    <i class="fa-solid fa-arrow-up"></i>
+  <button type="button" id="btn-back-to-top" class="btn-back-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <div class="logo-icon small"><i class="fa-solid fa-shirt"></i></div>
+          <div class="logo-icon small" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
           <strong>Loja Tetê</strong>
         </div>
         <p>© <span id="current-year"></span> - <span data-i18n="footerText">Catálogo integrado e sincronizado. Desenvolvido para conversão direta via WhatsApp.</span></p>

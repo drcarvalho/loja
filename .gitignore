@@ -3,4 +3,7 @@ node_modules
 __pycache__
 *.pyc
 .vercel
-
+test-results
+playwright-report
+blob-report
+playwright/.cache

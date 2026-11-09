@@ -4,6 +4,10 @@
     {
       "source": "/proxy-img",
       "destination": "/api/proxy-img"
+    },
+    {
+      "source": "/yupoo-products",
+      "destination": "/api/yupoo"
     }
   ],
   "headers": [
@@ -17,6 +21,10 @@
         {
           "key": "X-Frame-Options",
           "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     },
@@ -31,4 +39,3 @@
     }
   ]
 }
-

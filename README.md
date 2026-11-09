@@ -1,40 +1,45 @@
-# 🛍️ Loja Tetê - Catálogo & Pedidos via WhatsApp
+# 🛍️ Loja Tetê – Catálogo Premium & Pedidos via WhatsApp
 
-Site completo de e-commerce esportivo com 1.888 produtos extraídos do Yupoo, seleção de **Modelo, Tamanho, Quantidade e Preço**, carrinho de compras e envio direto para o **WhatsApp**.
-
----
-
-## ⚡ Como Hospedar na Vercel (Passo a Passo)
-
-### Opção 1: Via GitHub (Recomendada e Automática)
-1. Crie um novo repositório no seu GitHub (ex: `loja-tete`).
-2. No seu terminal, vincule o repositório local ao GitHub:
-   ```bash
-   git remote add origin https://github.com/SEU_USUARIO/loja-tete.git
-   git push -u origin main
-   ```
-3. Acesse [vercel.com](https://vercel.com) e faça login.
-4. Clique em **"Add New..."** ➔ **"Project"**.
-5. Selecione o repositório `loja-tete` e clique em **Deploy**.
-6. Pronto! A Vercel cuidará de tudo: arquivos estáticos, cache e a Serverless Function de imagens (`/api/proxy-img.js`).
+Catálogo completo de camisas e kits esportivos com base em `products.json` (1.888 itens), sincronização automática com o Yupoo (`wanfing.x.yupoo.com/categories/3852491`), seleção de **Versão/Tipo, Tamanho, Quantidade e Adicionais**, cálculo automático de frete regressivo (grátis a partir de 5 peças), conversão USD → BRL configurável, suporte multilíngue (**PT / EN / 中文**) e envio direto formatado para o **WhatsApp**.
 
 ---
 
-### Opção 2: Via Vercel CLI (Direto do Terminal)
-1. Instale a CLI da Vercel (se desejar):
+## 🚀 Publicação na Vercel
+
+### Opção 1: Via GitHub (Automática)
+1. Faça commit e push de todos os arquivos atualizados para o seu repositório GitHub:
    ```bash
-   npm i -g vercel
+   git add -A
+   git commit -m "chore: rewrite app, api proxy/sync and vercel config"
+   git push origin main
    ```
-2. No terminal dentro da pasta `Loja-tete`, execute:
-   ```bash
-   vercel
-   ```
-3. Confirme as opções padrão e o projeto estará no ar em poucos segundos!
+2. Acesse o painel da [Vercel](https://vercel.com) e clique em **Redeploy** (ou conecte o repositório em **Add New… → Project**).
+3. A Vercel publicará automaticamente os arquivos estáticos e as Serverless Functions (`/api/proxy-img` e `/api/yupoo`).
+
+### Opção 2: Via Vercel CLI
+```bash
+npx vercel --prod
+```
 
 ---
 
-## ⚙️ Arquivos Configurados para a Vercel
-- [`vercel.json`](file:///home/daniel/Área%20de%20trabalho/Loja-tete/vercel.json): Configuração de rotas, headers de segurança e cache do catálogo.
-- [`api/proxy-img.js`](file:///home/daniel/Área%20de%20trabalho/Loja-tete/api/proxy-img.js): Serverless Edge/Node Function na Vercel para servir as fotos do Yupoo com cabeçalho de Referer automático e cache global CDN de 7 dias.
-- [`package.json`](file:///home/daniel/Área%20de%20trabalho/Loja-tete/package.json) e [`.gitignore`](file:///home/daniel/Área%20de%20trabalho/Loja-tete/.gitignore): Metadados e regras do repositório.
+## 🧪 Rodando Localmente e Executando Testes E2E
 
+```bash
+# Subir servidor local (porta 8080)
+npm start
+
+# Rodar suite Playwright E2E (Chromium + Firefox)
+npm test
+```
+
+---
+
+## ⚙️ Arquitetura de Arquivos para a Vercel
+
+- [`vercel.json`](vercel.json): Rewrites (`/proxy-img` → `/api/proxy-img`, `/yupoo-products` → `/api/yupoo`), headers de segurança e cache para `products.json`.
+- [`package.json`](package.json): Define `"type": "module"` exigido para Serverless Functions ESM na Vercel e scripts `start` / `test`.
+- [`api/proxy-img.js`](api/proxy-img.js): Serverless Function com validação SSRF (domínios `*.yupoo.com`), header `Referer` automático e cache CDN de 7 dias.
+- [`api/yupoo.js`](api/yupoo.js): Serverless Function que busca e faz parse em tempo real de `https://wanfing.x.yupoo.com/categories/3852491` para manter novos álbuns sincronizados automaticamente no catálogo.
+- [`index.html`](index.html), [`style.css`](style.css), [`i18n.js`](i18n.js), [`app.js`](app.js): Front-end responsivo, acessível e livre de XSS.
+- [`server.py`](server.py): Servidor local multithreaded para desenvolvimento e execução dos testes E2E (não enviado para a Vercel via `.vercelignore`).

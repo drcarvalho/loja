@@ -1,10 +1,13 @@
 {
   "name": "loja-tete",
   "version": "1.0.0",
+  "type": "module",
   "description": "Loja online com catálogo Yupoo, seleção de Modelo, Tamanho, Quantidade e Pedidos via WhatsApp",
   "main": "index.html",
   "scripts": {
-    "start": "python3 server.py"
+    "start": "python3 server.py",
+    "test": "npx playwright test --project=chromium --project=firefox --reporter=list",
+    "test:all": "npx playwright test --reporter=list"
   },
   "keywords": [
     "loja",
@@ -15,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.65.0",
-    "cypress": "^15.21.1"
+    "@playwright/test": "^1.44.1",
+    "playwright": "^1.44.1"
   }
 }
