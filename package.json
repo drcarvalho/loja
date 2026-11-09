@@ -13,6 +13,9 @@
     "ecommerce"
   ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "cypress": "^15.21.1"
+  }
 }
-
