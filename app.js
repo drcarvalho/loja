@@ -140,6 +140,8 @@ const storeDefaultPriceInput = document.getElementById('store-default-price-inpu
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('current-year').textContent = new Date().getFullYear();
   applyLanguage(currentLang);
+  // Set the HTML lang attribute for accessibility and SEO
+  document.documentElement.lang = currentLang;
   loadCartFromStorage();
   loadStoreConfig();
   fetchProducts();

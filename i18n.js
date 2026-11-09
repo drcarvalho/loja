@@ -1,11 +1,11 @@
 const i18n = {
   pt: {
-    siteTitle: "Loja Tetê - Catálogo & Pedidos via WhatsApp",
-    tagline: "Catálogo Yupoo • Encomendas no WhatsApp",
-    adjustStore: "Ajustar Cotação / Loja",
+    siteTitle: "Loja Tetê – Catálogo Premium",
+    tagline: "Catálogo premium – pedidos via WhatsApp",
+    adjustStore: "Configurações",
     cart: "Carrinho",
-    bannerTitle: "Catálogo Oficial de Camisas de Time 🔥",
-    bannerDesc: "Escolha o Modelo, selecione o Tipo, Tamanho, Personalizações e Frete. Pedido calculado em Dólar e convertido em Real!",
+    bannerTitle: "Catálogo Premium de Camisas de Time 🔥",
+    bannerDesc: "Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares convertido automaticamente para reais.",,
     productsStat: "Produtos",
     directOrder: "Pedido Direto",
     searchPlaceholder: "Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)...",
