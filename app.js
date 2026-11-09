@@ -45,8 +45,14 @@ const BASE_SIZES = [
   'Kids (22)', 'Kids (24)', 'Kids (26)', 'Kids (28)'
 ];
 
+const DEFAULT_WHATSAPP = '5514998077106';
+const savedWhatsapp = localStorage.getItem('store_whatsapp');
+const initialWhatsapp = (!savedWhatsapp || savedWhatsapp === '5511999999999')
+  ? DEFAULT_WHATSAPP
+  : savedWhatsapp;
+
 let storeConfig = {
-  phone: localStorage.getItem('store_whatsapp') || '5511999999999',
+  phone: initialWhatsapp,
   name: localStorage.getItem('store_name') || 'Loja Tetê',
   exchangeRate: parseFloat(localStorage.getItem('store_exchange_rate')) || 5.80,
   defaultPriceUSD: parseFloat(localStorage.getItem('store_default_price_usd')) || 8.00
@@ -220,11 +226,11 @@ function updateHeaderRate() {
 function saveStoreConfig(e) {
   e.preventDefault();
   let cleanPhone = storePhoneInput.value.replace(/\D/g, '');
-  if (!cleanPhone.startsWith('55') && cleanPhone.length <= 11) {
+  if (cleanPhone && !cleanPhone.startsWith('55') && cleanPhone.length <= 11) {
     cleanPhone = '55' + cleanPhone;
   }
 
-  storeConfig.phone = cleanPhone || '5511999999999';
+  storeConfig.phone = cleanPhone.length >= 10 ? cleanPhone : DEFAULT_WHATSAPP;
   storeConfig.name = storeNameInput.value.trim() || 'Loja Tetê';
   storeConfig.exchangeRate = parseFloat(storeExchangeRateInput.value) || 5.80;
   storeConfig.defaultPriceUSD = parseFloat(storeDefaultPriceInput.value) || 8.00;
