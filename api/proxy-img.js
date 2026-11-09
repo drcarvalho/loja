@@ -5,6 +5,14 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing 'url' query parameter" });
   }
 
+  // Allow only images from the approved Yupoo domain
+  const allowedDomain = "https://wanfing.x.yupoo.com/";
+  if (!url.startsWith(allowedDomain)) {
+    return res.status(400).json({ error: "Domínio não permitido" });
+  }
+    return res.status(400).json({ error: "Missing 'url' query parameter" });
+  }
+
   try {
     const response = await fetch(url, {
       headers: {
