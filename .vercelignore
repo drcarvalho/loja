@@ -7,4 +7,10 @@ server.py
 __pycache__
 *.pyc
 .git
-
+backup-loja
+api
+app.js
+i18n.js
+style.css
+products.json
+README.md

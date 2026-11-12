@@ -1,19 +1,24 @@
 {
   "version": 2,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/proxy-img",
-      "destination": "/api/proxy-img"
-    },
-    {
-      "source": "/yupoo-products",
-      "destination": "/api/yupoo"
+      "source": "/:path+",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -25,15 +30,6 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
-        }
-      ]
-    },
-    {
-      "source": "/products.json",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
         }
       ]
     }

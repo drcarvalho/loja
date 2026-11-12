@@ -1,353 +1,547 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="siteTitle">Loja Tetê – Catálogo Premium</title>
-  <meta name="description"
-    content="Catálogo completo de camisas esportivas com seleção de Modelo, Tamanho, Quantidade, Personalizações e Frete Integrado ao WhatsApp.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Site Temporariamente Fora do Ar · Serviço Suspenso</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1020'/%3E%3Ccircle cx='32' cy='32' r='14' fill='none' stroke='%23ef4444' stroke-width='5'/%3E%3Cline x1='32' y1='14' x2='32' y2='30' stroke='%23f59e0b' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-card: rgba(13, 19, 38, 0.82);
+      --border: rgba(148, 163, 184, 0.16);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --danger: #ef4444;
+      --amber: #f59e0b;
+      --whatsapp: #22c55e;
+      --whatsapp-hover: #16a34a;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Grade futurista de fundo + brilho ambiente */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 25%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow {
+      position: fixed;
+      width: 560px;
+      height: 560px;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.22;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-glow.one {
+      top: -160px;
+      left: -120px;
+      background: var(--danger);
+      animation: floatGlow 10s ease-in-out infinite alternate;
+    }
+
+    .bg-glow.two {
+      bottom: -180px;
+      right: -120px;
+      background: var(--amber);
+      animation: floatGlow 12s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translate(0, 0) scale(1); }
+      to { transform: translate(36px, 28px) scale(1.08); }
+    }
+
+    /* Card Central */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 660px;
+      background: var(--bg-card);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 32px 28px;
+      box-shadow:
+        0 25px 60px -15px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card.shake {
+      animation: cardShake 0.45s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+    }
+
+    @keyframes cardShake {
+      10%, 90% { transform: translateX(-2px); }
+      20%, 80% { transform: translateX(4px); }
+      30%, 50%, 70% { transform: translateX(-5px); }
+      40%, 60% { transform: translateX(5px); }
+    }
+
+    /* Badge de Status */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 14px;
+      border-radius: 9999px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      color: #fca5a5;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--danger);
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { box-shadow: 0 0 0 9px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    /* Ilustração SVG do Cabo / Disjuntor Desconectado */
+    .plug-stage {
+      margin: 4px auto 20px;
+      width: 240px;
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .plug-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .plug-left {
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .plug-right {
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .plug-stage.connecting .plug-left {
+      transform: translateX(16px);
+    }
+
+    .plug-stage.connecting .plug-right {
+      transform: translateX(-16px);
+    }
+
+    .spark {
+      opacity: 0.85;
+      transform-origin: center;
+      animation: sparkFlicker 1.4s ease-in-out infinite;
+    }
+
+    @keyframes sparkFlicker {
+      0%, 100% { opacity: 0.25; transform: scale(0.92); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* Tipografia Principal */
+    h1 {
+      font-size: clamp(24px, 4.4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.7px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 15%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    .subtitle strong {
+      color: #fde68a;
+      font-weight: 700;
+    }
+
+    /* Caixa Terminal de Telemetria */
+    .terminal-box {
+      background: rgba(2, 6, 23, 0.88);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 14px;
+      text-align: left;
+      overflow: hidden;
+      margin-bottom: 24px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .terminal-bar {
+      background: rgba(15, 23, 42, 0.9);
+      padding: 9px 14px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .terminal-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot-r { background: #ef4444; }
+    .dot-y { background: #f59e0b; }
+    .dot-g { background: #22c55e; opacity: 0.35; }
+
+    .terminal-body {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #cbd5e1;
+      min-height: 112px;
+    }
+
+    .log-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      word-break: break-word;
+    }
+
+    .log-prompt { color: #64748b; }
+    .log-ok { color: #38bdf8; }
+    .log-warn { color: var(--amber); font-weight: 700; }
+    .log-err { color: #f87171; font-weight: 700; }
+
+    /* Botões de Ação */
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid #38bdf8;
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background: var(--whatsapp);
+      color: #042f16;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: #4ade80;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.11);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    /* Rodapé discreto com telemetria */
+    .meta-footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      padding-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .code-badge {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 28px 18px 22px;
+        border-radius: 18px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .meta-footer {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bg-glow, .status-dot, .spark, .card.shake {
+        animation: none !important;
+      }
+      .plug-left, .plug-right, .btn {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Header / Barra Superior -->
-  <header class="header">
-    <div class="container nav-content">
-      <div class="brand">
-        <div class="logo-icon" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
-        <div class="brand-text">
-          <h1>Loja Tetê</h1>
-          <p class="tagline" data-i18n="tagline">Catálogo premium – pedidos via WhatsApp</p>
-        </div>
-      </div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow one" aria-hidden="true"></div>
+  <div class="bg-glow two" aria-hidden="true"></div>
 
-      <div class="header-actions">
-        <!-- Seletor de Idiomas -->
-        <div class="lang-selector" role="group" aria-label="Idioma">
-          <button type="button" class="lang-btn active" data-lang="pt" title="Português" role="button"
-            aria-label="Selecionar idioma Português">🇧🇷 PT</button>
-          <button type="button" class="lang-btn" data-lang="en" title="English" role="button"
-            aria-label="Selecionar idioma English">🇺🇸 EN</button>
-          <button type="button" class="lang-btn" data-lang="zh" title="中文 (Chinese)" role="button"
-            aria-label="Selecionar idioma 中文">🇨🇳 中文</button>
-        </div>
-
-        <!-- Badge de Cotação Interativa -->
-        <button type="button" class="rate-badge" id="rate-badge-pill" title="Clique para ajustar a cotação do dólar"
-          aria-label="Ajustar cotação do dólar">
-          <span class="pulse-dot" aria-hidden="true"></span>
-          <i class="fa-solid fa-coins" aria-hidden="true"></i>
-          <span>1 USD = R$ <strong id="header-rate-display">5,80</strong></span>
-        </button>
-
-        <button type="button" id="open-settings-btn" class="btn-icon" title="Configurar WhatsApp, Dólar e Cotação"
-          aria-label="Configurações da Loja">
-          <i class="fa-solid fa-sliders" aria-hidden="true"></i>
-          <span class="settings-label" data-i18n="adjustStore">Configurações</span>
-        </button>
-
-        <button type="button" id="cart-floating-btn" class="btn-cart" aria-label="Abrir carrinho"
-          aria-controls="cart-sidebar" aria-expanded="false">
-          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-          <span class="cart-label" data-i18n="cart">Carrinho</span>
-          <span id="cart-badge" class="badge">0</span>
-        </button>
-      </div>
+  <main class="card" id="status-card">
+    <div class="status-pill" role="status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span>SYSTEM OFFLINE · SERVIÇO SUSPENSO</span>
     </div>
-  </header>
 
-  <!-- Banner Informativo -->
-  <section class="hero-banner">
-    <div class="container">
-      <div class="banner-card">
-        <div class="banner-info">
-          <div class="banner-badge">
-            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-            <span data-i18n="bannerBadge">Catálogo 2026/27 Sincronizado com Yupoo</span>
-          </div>
-          <h2 data-i18n="bannerTitle">Catálogo Premium de Camisas de Time 🔥</h2>
-          <p data-i18n="bannerDesc">Selecione modelo, versão, tamanho, customizações e frete. Preço em dólares
-            convertido automaticamente para reais.</p>
+    <!-- Ilustração Interativa de Cabo Desconectado -->
+    <div class="plug-stage" id="plug-stage" title="Clique para testar a conexão" aria-hidden="true">
+      <svg class="plug-svg" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lado esquerdo (Tomada / Infraestrutura) -->
+        <g class="plug-left">
+          <path d="M0 45 H68" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+          <rect x="64" y="25" width="38" height="40" rx="8" fill="#0f172a" stroke="#475569" stroke-width="2.5"/>
+          <circle cx="80" cy="39" r="3.5" fill="#64748b"/>
+          <circle cx="80" cy="51" r="3.5" fill="#64748b"/>
+          <rect x="97" y="34" width="6" height="22" rx="2" fill="#334155"/>
+        </g>
 
-          <div class="banner-perks">
-            <span class="perk-tag"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span
-                data-i18n="perkFreeShipping">Frete Grátis 5+ Peças</span></span>
-            <span class="perk-tag"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> <span
-                data-i18n="perkWhatsApp">Atendimento Direto</span></span>
-            <span class="perk-tag"><i class="fa-solid fa-tags" aria-hidden="true"></i> <span
-                data-i18n="perkFactoryPrice">Preço Direto da Fábrica</span></span>
-          </div>
-        </div>
+        <!-- Faísca central -->
+        <g class="spark" id="plug-spark">
+          <path d="M130 23 L125 43 H134 L127 65" stroke="#f59e0b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="121" cy="32" r="2" fill="#ef4444"/>
+          <circle cx="141" cy="56" r="2" fill="#f59e0b"/>
+        </g>
 
-        <div class="banner-stats">
-          <div class="stat-pill">
-            <div class="stat-icon-wrap" aria-hidden="true"><i class="fa-solid fa-boxes-stacked"></i></div>
-            <div class="stat-info-text">
-              <span class="stat-lbl" data-i18n="productsStat">Produtos</span>
-              <strong id="catalog-total-stat">1.888</strong>
-            </div>
-          </div>
-          <div class="stat-pill highlight">
-            <div class="stat-icon-wrap wa" aria-hidden="true"><i class="fa-brands fa-whatsapp"></i></div>
-            <div class="stat-info-text">
-              <span class="stat-lbl">Checkout</span>
-              <strong data-i18n="directOrder">Pedido Direto</strong>
-            </div>
-          </div>
-        </div>
-      </div>
+        <!-- Lado direito (Plug do Catálogo) -->
+        <g class="plug-right">
+          <rect x="155" y="34" width="12" height="5" rx="2" fill="#94a3b8"/>
+          <rect x="155" y="51" width="12" height="5" rx="2" fill="#94a3b8"/>
+          <rect x="166" y="27" width="32" height="36" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2.5"/>
+          <path d="M198 45 H260" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 6"/>
+        </g>
+      </svg>
     </div>
-  </section>
 
-  <!-- Conteúdo Principal: Catálogo + Carrinho -->
-  <main class="container main-layout">
-    <!-- Coluna do Catálogo -->
-    <section class="products-section" aria-label="Catálogo de Produtos">
-      <div class="section-controls">
-        <div class="search-row">
-          <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
-            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder"
-              placeholder="Buscar por time, seleção ou modelo (ex: Real Madrid, Barcelona, Brasil)..."
-              aria-label="Buscar produtos">
-            <button type="button" id="clear-search-btn" class="clear-search-btn" style="display:none;"
-              title="Limpar busca" aria-label="Limpar busca">&times;</button>
-          </div>
+    <h1>Site temporariamente retirado do ar.</h1>
+    <p class="subtitle">
+      Este projeto e toda a infraestrutura de catálogo encontram-se <strong>suspensos</strong> por pendência no pagamento acordado com o desenvolvedor responsável.
+    </p>
+
+    <!-- Terminal de Diagnóstico -->
+    <section class="terminal-box" aria-label="Status do sistema">
+      <div class="terminal-bar">
+        <div class="terminal-dots" aria-hidden="true">
+          <span class="dot-r"></span>
+          <span class="dot-y"></span>
+          <span class="dot-g"></span>
         </div>
-
-        <!-- Chips de Categoria Rápida -->
-        <div class="category-chips" id="category-chips" role="tablist" aria-label="Filtrar por categoria">
-          <button type="button" class="chip active" data-filter="all" data-i18n="catAll">Todos</button>
-          <button type="button" class="chip" data-filter="fan" data-i18n="catFan">👕 Fan ($8)</button>
-          <button type="button" class="chip" data-filter="player" data-i18n="catPlayer">⚡ Players ($10)</button>
-          <button type="button" class="chip" data-filter="retro" data-i18n="catRetro">⏳ Retro ($12)</button>
-          <button type="button" class="chip" data-filter="kids" data-i18n="catKids">👦 Conjunto Kids ($10)</button>
-          <button type="button" class="chip" data-filter="long_sleeve" data-i18n="catLongSleeve">🥼 Manga Longa
-            ($13)</button>
-          <button type="button" class="chip" data-filter="training" data-i18n="catTraining">🏃 Treino ($22)</button>
+        <span>deploy-guard · loja-tete</span>
+      </div>
+      <div class="terminal-body" id="terminal-log" aria-live="polite">
+        <div class="log-line">
+          <span class="log-prompt">$</span>
+          <span>check-status --project loja-tete</span>
         </div>
-
-        <div class="filter-badge-bar">
-          <span id="products-count" class="count-badge">Carregando catálogo...</span>
-          <span class="verified-seal">
-            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-            <span data-i18n="verifiedProducts">Produtos 100% verificados</span>
-          </span>
+        <div class="log-line">
+          <span class="log-prompt">&gt;</span>
+          <span class="log-warn">STATUS: SUSPENSO (HTTP 402 · PAYMENT_REQUIRED)</span>
+        </div>
+        <div class="log-line">
+          <span class="log-prompt">&gt;</span>
+          <span>Módulos de catálogo, API e checkout: <strong class="log-err">[DESCONECTADOS]</strong></span>
+        </div>
+        <div class="log-line">
+          <span class="log-prompt">&gt;</span>
+          <span id="dynamic-status-line">Aguardando regularização para restabelecer o serviço.</span>
         </div>
       </div>
-
-      <!-- Grade de Produtos -->
-      <div id="products-grid" class="products-grid">
-        <div class="catalog-loading">
-          <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
-          <span>Carregando catálogo...</span>
-        </div>
-      </div>
-
-      <!-- Paginação -->
-      <nav class="pagination-controls" id="pagination-container" aria-label="Paginação"></nav>
     </section>
 
-    <!-- Backdrop do Drawer Mobile -->
-    <div class="cart-backdrop" id="cart-backdrop" aria-hidden="true"></div>
+    <div class="actions">
+      <a
+        id="btn-whatsapp-owner"
+        class="btn btn-primary"
+        href="https://wa.me/5514998077106?text=Ol%C3%A1!%20Quero%20regularizar%20o%20pagamento%20para%20reativar%20o%20site%20no%20ar."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.12c-.25.7-1.45 1.33-2 1.42-.52.08-1.18.11-1.91-.12-.44-.14-1-.33-1.72-.64-3.03-1.31-5.01-4.38-5.16-4.58-.15-.2-1.23-1.64-1.23-3.13 0-1.49.78-2.22 1.06-2.52.28-.3.61-.38.81-.38.2 0 .41 0 .58.01.19.01.44-.07.69.53.25.61.86 2.1.94 2.25.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.18-.32.4-.46.53-.15.15-.31.32-.13.63.18.3.8 1.32 1.72 2.14 1.18 1.05 2.17 1.38 2.48 1.53.3.15.48.13.66-.08.18-.2.76-.88.96-1.18.2-.3.4-.25.68-.15.28.1 1.77.83 2.07.98.3.15.51.23.58.36.08.13.08.76-.17 1.46z"/>
+        </svg>
+        Regularizar e Reativar via WhatsApp
+      </a>
 
-    <!-- Sidebar / Drawer do Carrinho -->
-    <aside class="cart-sidebar" id="cart-sidebar" aria-label="Carrinho de Compras">
-      <div class="cart-card">
-        <div class="cart-header">
-          <div class="cart-title">
-            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
-            <h3 data-i18n="yourCart">Seu Carrinho</h3>
-          </div>
-          <div class="cart-header-actions">
-            <button type="button" id="clear-cart-btn" class="btn-text-danger" title="Esvaziar carrinho">
-              <i class="fa-solid fa-trash-can" aria-hidden="true"></i> <span data-i18n="clearCart">Limpar</span>
-            </button>
-            <button type="button" id="close-cart-drawer" class="btn-close-drawer"
-              aria-label="Fechar carrinho">&times;</button>
-          </div>
-        </div>
+      <button type="button" id="btn-retry-conn" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+          <path d="M21 3v5h-5"/>
+        </svg>
+        <span id="retry-label">Testar Reconexão</span>
+      </button>
+    </div>
 
-        <!-- Banner de Progresso do Frete Grátis -->
-        <div class="shipping-progress-card" id="shipping-progress-box">
-          <div class="progress-labels">
-            <span class="progress-title"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> <span
-                data-i18n="shippingPromoTitle">Promoção Frete Grátis</span></span>
-            <span class="progress-target" id="progress-target-text">Faltam 5 peças</span>
-          </div>
-          <div class="progress-bar-bg">
-            <div class="progress-bar-fill" id="shipping-progress-bar" style="width: 0%;"></div>
-          </div>
-        </div>
-
-        <!-- Lista de itens do carrinho -->
-        <div id="cart-items" class="cart-items-list">
-          <div class="empty-cart-state">
-            <div class="empty-cart-icon">
-              <i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>
-            </div>
-            <p data-i18n="emptyCartTitle">Seu carrinho está vazio.</p>
-            <span data-i18n="emptyCartDesc">Selecione produtos, modelo e tamanho para começar!</span>
-          </div>
-        </div>
-
-        <!-- Formulário do Cliente -->
-        <div class="order-form">
-          <h4><i class="fa-solid fa-user-check" aria-hidden="true"></i> <span data-i18n="orderData">Dados para o
-              Pedido</span></h4>
-
-          <div class="input-group">
-            <label for="customer-name" data-i18n="yourName">Seu Nome *</label>
-            <input type="text" id="customer-name" data-i18n-placeholder="namePlaceholder"
-              placeholder="Ex: Lucas Ferreira" required>
-          </div>
-
-          <div class="input-group">
-            <label for="customer-address" data-i18n="deliveryAddress">Endereço de Entrega / Cidade</label>
-            <input type="text" id="customer-address" data-i18n-placeholder="addressPlaceholder"
-              placeholder="Ex: Av. Paulista, 1000 - São Paulo/SP">
-          </div>
-
-          <div class="input-group">
-            <label for="order-notes" data-i18n="notes">Observações / Instruções</label>
-            <textarea id="order-notes" rows="2" data-i18n-placeholder="notesPlaceholder"
-              placeholder="Ex: Entregar à tarde, embalar para presente, etc."></textarea>
-          </div>
-        </div>
-
-        <!-- Resumo Financeiro com Frete -->
-        <div class="cart-summary">
-          <div class="summary-line">
-            <span data-i18n="dollarRate">Cotação do Dólar:</span>
-            <span id="cart-exchange-rate" class="rate-value">1 USD = R$ 5,80</span>
-          </div>
-          <div class="summary-line">
-            <span data-i18n="subtotalUSD">Subtotal Itens (USD):</span>
-            <span id="subtotal-usd-val" class="subtotal-usd">$ 0.00</span>
-          </div>
-          <div class="summary-line">
-            <span data-i18n="subtotalBRL">Subtotal Itens (BRL):</span>
-            <span id="subtotal-val">R$ 0,00</span>
-          </div>
-          <div class="summary-line shipping-line" id="shipping-display-row">
-            <span data-i18n="shippingUSD">Frete (USD):</span>
-            <span id="shipping-usd-val" class="shipping-val">$ 0.00</span>
-          </div>
-          <div class="summary-shipping-info" id="shipping-info-badge">
-            <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
-            <span id="shipping-info-text">Frete: 1 un = 5$ | 2 un = 4$ | 3 un = 3$ | 4 un = 2$ | 5+ un = GRÁTIS!</span>
-          </div>
-          <div class="summary-line total-line">
-            <div>
-              <span data-i18n="totalToPay">Total a Pagar:</span>
-              <div class="total-usd-sub" id="total-usd-val">$ 0.00 USD</div>
-            </div>
-            <span id="total-val" class="total-brl-val">R$ 0,00</span>
-          </div>
-        </div>
-
-        <!-- Botão Finalizar no WhatsApp -->
-        <button type="button" id="btn-send-whatsapp" class="btn-whatsapp" disabled>
-          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-          <span data-i18n="buyOnWhatsApp">Comprar e Enviar no WhatsApp</span>
-        </button>
-
-        <p class="privacy-note" data-i18n="privacyNote">
-          O pedido será gerado em mensagem pronta com todos os adicionais e frete detalhados direto para o WhatsApp.
-        </p>
-      </div>
-    </aside>
+    <footer class="meta-footer">
+      <span>ERR_CODE: <span class="code-badge">402_SUSPENDED</span></span>
+      <span id="downtime-clock">Offline · Verificação contínua</span>
+    </footer>
   </main>
 
-  <!-- Modal: Configuração da Loja -->
-  <div class="modal" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title"
-    aria-hidden="true">
-    <div class="modal-backdrop" id="backdrop-settings"></div>
-    <div class="modal-dialog">
-      <div class="modal-header">
-        <h3 id="settings-modal-title"><i class="fa-solid fa-gear" aria-hidden="true"></i> <span
-            data-i18n="configTitle">Configurações da Loja</span></h3>
-        <button type="button" class="btn-close-modal" id="close-settings-modal"
-          aria-label="Fechar configurações">&times;</button>
-      </div>
-      <form id="form-settings" class="modal-body">
-        <div class="input-group">
-          <label for="store-phone" data-i18n="whatsAppNumber">Número de WhatsApp da sua Loja *</label>
-          <input type="text" id="store-phone" placeholder="Ex: 8615875982936" value="8615875982936" required>
-          <small class="helper-text">DDD + 9 dígitos com DDI 55 (ex: <code>8615875982936</code>).</small>
-        </div>
+  <script>
+    const card = document.getElementById('status-card');
+    const plugStage = document.getElementById('plug-stage');
+    const retryBtn = document.getElementById('btn-retry-conn');
+    const retryLabel = document.getElementById('retry-label');
+    const dynamicLine = document.getElementById('dynamic-status-line');
+    const downtimeClock = document.getElementById('downtime-clock');
 
-        <div class="input-group">
-          <label for="store-name-input" data-i18n="storeName">Nome da Loja</label>
-          <input type="text" id="store-name-input" value="Loja Tetê">
-        </div>
+    let isTesting = false;
+    let attemptCount = 0;
 
-        <div class="input-row">
-          <div class="input-group">
-            <label for="store-exchange-rate-input" data-i18n="dollarRateInput">Cotação do Dólar no seu App (R$ por 1
-              USD) *</label>
-            <input type="number" step="0.001" min="1" id="store-exchange-rate-input" value="5.80" required>
-            <small class="helper-text" data-i18n="dollarRateHelper">Insira a cotação exata mostrada no app de
-              transferência (ex: Wise, Nomad, Remessa Online, etc.).</small>
-          </div>
-          <div class="input-group">
-            <label for="store-default-price-input" data-i18n="defaultPriceUSD">Preço Padrão Fan (US$)</label>
-            <input type="number" step="0.01" min="1" id="store-default-price-input" value="8.00" required>
-            <small class="helper-text" data-i18n="defaultPriceHelper">Preço base da versão Fan (padrão: 8.00).</small>
-          </div>
-        </div>
+    function testReconnect() {
+      if (isTesting) return;
+      isTesting = true;
+      attemptCount += 1;
 
-        <div class="modal-actions">
-          <button type="button" class="btn-secondary" id="cancel-settings-modal" data-i18n="cancel">Cancelar</button>
-          <button type="submit" class="btn-primary"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> <span
-              data-i18n="saveChanges">Salvar Alterações</span></button>
-        </div>
-      </form>
-    </div>
-  </div>
+      retryBtn.disabled = true;
+      retryLabel.textContent = 'Verificando licença...';
+      plugStage.classList.add('connecting');
+      dynamicLine.className = 'log-ok';
+      dynamicLine.textContent = `[Tentativa #${attemptCount}] Pingando servidor de ativação...`;
 
-  <!-- Toast Notification -->
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      setTimeout(() => {
+        plugStage.classList.remove('connecting');
+        card.classList.remove('shake');
+        void card.offsetWidth;
+        card.classList.add('shake');
 
-  <!-- Barra Flutuante Móvel do Carrinho -->
-  <div class="mobile-cart-bar" id="mobile-cart-bar">
-    <div class="mobile-cart-info">
-      <span class="mobile-cart-qty"><strong id="mobile-badge">0</strong> <span
-          data-i18n="piecesLabel">peças</span></span>
-      <span class="mobile-cart-total" id="mobile-total-val">R$ 0,00</span>
-    </div>
-    <button type="button" class="mobile-cart-btn" id="mobile-cart-scroll-btn">
-      <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> <span data-i18n="viewCart">Ver Carrinho</span>
-    </button>
-  </div>
+        dynamicLine.className = 'log-err';
+        dynamicLine.textContent = `[Recusado #${attemptCount}] Chave de ativação pendente. Entre em contato pelo WhatsApp para liberar o acesso.`;
 
-  <!-- Botão Voltar ao Topo -->
-  <button type="button" id="btn-back-to-top" class="btn-back-to-top" title="Voltar ao topo" aria-label="Voltar ao topo">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-  </button>
+        retryBtn.disabled = false;
+        retryLabel.textContent = 'Testar Reconexão';
+        isTesting = false;
+      }, 950);
+    }
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <div class="logo-icon small" aria-hidden="true"><i class="fa-solid fa-shirt"></i></div>
-          <strong>Loja Tetê</strong>
-        </div>
-        <p>© <span id="current-year"></span> - <span data-i18n="footerText">Catálogo integrado e sincronizado.
-            Desenvolvido para conversão direta via WhatsApp.</span></p>
-      </div>
-    </div>
-  </footer>
+    retryBtn.addEventListener('click', testReconnect);
+    plugStage.addEventListener('click', testReconnect);
 
-  <script src="i18n.js"></script>
-  <script src="app.js"></script>
+    // Atualiza relógio de status em tempo real
+    function updateClock() {
+      const now = new Date();
+      downtimeClock.textContent = `Suspenso · ${now.toLocaleDateString('pt-BR')} ${now.toLocaleTimeString('pt-BR')}`;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 </body>
-
 </html>
